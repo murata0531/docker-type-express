@@ -4,13 +4,13 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-var indexRouter = require('./routes/index'); // 変更箇所
+var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 var app = express();
 
 // view engine setup
-app.set('views', path.join('views'));  // 変更箇所
+app.set('views', path.join('views'));
 app.set('view engine', 'jade');
 
 app.use(logger('dev'));
