@@ -15,7 +15,8 @@
     "http-errors": "~1.6.3",
     "jade": "^1.9.2",
     "line": "^0.1.8",
-    "morgan": "~1.9.1"
+    "morgan": "~1.9.1",
+    "react-redux": "^7.2.5"
   },
   "devDependencies": {
     "@types/cookie-parser": "^1.4.2",
