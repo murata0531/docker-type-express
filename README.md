@@ -1,6 +1,6 @@
 # Docker-type-express
 
-Docker + TypeScript + Express
+Docker + TypeScript + Express + redux
 
 インストールしたいものがある場合(Dockerfileに書いても良い)
 
