@@ -24,3 +24,10 @@ const initialState: AuthState = {
 interface LiffIdToken {
     liffIdToken?: string;
 }
+
+interface LineProfile {
+    userId?: string;
+    displayName?: string;
+    pictureUrl?: string;
+    statusMessage?: string;
+}
