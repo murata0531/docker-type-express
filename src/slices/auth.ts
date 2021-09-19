@@ -50,3 +50,15 @@ export const getLiffIdToken = createAsyncThunk<LiffIdToken>(
         throw new Error("login error");
     },
 );
+
+//get line profile
+export const getLineProfile = createAsyncThunk<LineProfile>(
+    "lineProfile/fetch",
+    async (): Promise<LineProfile> => {
+        const lineProfile = liff.getProfile();
+        if(lineProfile){
+            return lineProfile as LineProfile;
+        }
+        throw new Error("profile fetch error");
+    },
+);
