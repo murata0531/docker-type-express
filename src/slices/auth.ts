@@ -31,3 +31,22 @@ interface LineProfile {
     pictureUrl?: string;
     statusMessage?: string;
 }
+
+//line login
+export const getLiffIdToken = createAsyncThunk<LiffIdToken>(
+    "liffIdToken/fetch",
+    async (): Promise<LiffIdToken> => {
+        if(!liffId){
+            throw new Error("liffId is not difined");
+        }
+        await liff.init({liffId});
+        if(!liff.isLoggedIn()){
+            liff.login();
+        }
+        const liffIdToken = liff.getIDToken();
+        if(liffIdToken){
+            return {liffIdToken} as LiffIdToken;
+        }
+        throw new Error("login error");
+    },
+);
