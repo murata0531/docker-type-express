@@ -62,3 +62,26 @@ export const getLineProfile = createAsyncThunk<LineProfile>(
         throw new Error("profile fetch error");
     },
 );
+
+export const authSlice = createSlice({
+    name: "auth",
+    initialState,
+    reducers: {},
+    extraReducers: (builder) => {
+        builder.addCase(getLiffIdToken.fulfilled, (state, action) => {
+            state.liffIdToken = action.payload.liffIdToken;
+        });
+        builder.addCase(getLiffIdToken.rejected, (state,action) => {
+            state.error = action.error;
+        });
+        builder.addCase(getLineProfile.fulfilled, (state,action) => {
+            state.userId = action.payload.userId;
+            state.displayName = action.payload.displayName;
+            state.pictureUrl = action.payload.pictureUrl;
+            state.statusMessage = action.payload.statusMessage;
+        });
+        builder.addCase(getLineProfile.rejected, (state, action) => {
+            state.error = action.error;
+        });
+    },
+});
