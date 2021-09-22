@@ -7,3 +7,7 @@ export const store = configureStore({
         auth: authSlice.reducer,
     },
 });
+
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;
+export const useSelector: TypedUseSelectorHook<RootState> = rawUseSelector;
