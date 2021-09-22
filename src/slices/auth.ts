@@ -1,4 +1,6 @@
 import { createAsyncThunk,createSlice,SerializedError } from "@reduxjs/toolkit";
+import { createSelector } from "reselect";
+import { RootState } from "../store";
 import liff from "@line/liff";
 
 const liffId = process.env.React_APP_LIFF_ID;
@@ -84,4 +86,9 @@ export const authSlice = createSlice({
             state.error = action.error;
         });
     },
+});
+
+export const authSelector = (state: RootState) => state.auth;
+export const liffIdTokenSelector = createSelector(authSelector, (auth) => {
+    return auth.liffIdToken;
 });
